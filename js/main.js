@@ -236,7 +236,16 @@
       { root: null, threshold: 0.2 }
     );
 
-    reveals.forEach((el) => clipObserver.observe(el));
+    reveals.forEach((el) => {
+      clipObserver.observe(el);
+      // Force visible for above-the-fold elements — clip-path makes
+      // intersectionRatio 0, so the observer alone can't detect them.
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('is-visible');
+        clipObserver.unobserve(el);
+      }
+    });
   }
 
   // ============================================
