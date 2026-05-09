@@ -2498,3 +2498,506 @@ button {
   .section { padding: 2rem 0; }
   body { background: white; color: black; }
 }
+
+
+/* ============================================
+   ENHANCED VISUAL SYSTEM — Best in Class
+   ============================================ */
+
+/* ---- Text Split Animation ---- */
+.split-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotateX(-40deg);
+  transform-origin: center bottom;
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+.split-word.is-visible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+/* ---- 3D Card Tilt ---- */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tilt-card-inner {
+  transition: transform 0.3s var(--ease-out);
+  transform-style: preserve-3d;
+}
+
+/* ---- Noise Texture ---- */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ---- Clip-Path Image Reveal ---- */
+.clip-reveal {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  transition: clip-path 1.2s var(--ease-out-expo);
+}
+
+.clip-reveal.is-visible {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.clip-reveal-diagonal {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  transition: clip-path 1.2s var(--ease-out-expo);
+}
+
+.clip-reveal-diagonal.is-visible {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ---- Sticky Section Labels ---- */
+.sticky-label {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .sticky-label {
+    display: block;
+    position: absolute;
+    left: var(--space-8);
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left center;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-light);
+    white-space: nowrap;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .section { position: relative; }
+}
+
+/* ---- Magnetic Button Enhancement ---- */
+.magnetic {
+  transition: transform 0.2s var(--ease-out);
+}
+
+/* ---- Counter Animation ---- */
+.counter-value {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- SVG Line Draw ---- */
+.line-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.5s var(--ease-out-expo);
+}
+
+.line-draw.is-visible {
+  stroke-dashoffset: 0;
+}
+
+/* ---- Enhanced Hero Photo Mobile ---- */
+@media (max-width: 1023px) {
+  .hero-visual {
+    display: flex !important;
+    order: -1;
+    margin-bottom: var(--space-8);
+  }
+  
+  .hero-photo-frame {
+    width: 280px;
+    height: 224px;
+  }
+  
+  .hero-layout {
+    flex-direction: column-reverse;
+  }
+}
+
+/* ---- Editorial Typography Scale ---- */
+@media (min-width: 1280px) {
+  .hero-title {
+    font-size: 5rem;
+    letter-spacing: -0.035em;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* ---- Dramatic Section Spacing ---- */
+@media (min-width: 1024px) {
+  .section {
+    padding-top: var(--space-40);
+    padding-bottom: var(--space-40);
+  }
+}
+
+/* ---- Glow Effects ---- */
+.glow-accent {
+  box-shadow: 0 0 60px var(--accent-glow);
+}
+
+/* ---- Gradient Border Cards ---- */
+.gradient-border {
+  position: relative;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--radius-lg) + 1px);
+  background: linear-gradient(135deg, var(--accent), transparent, var(--accent-light));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.gradient-border:hover::before {
+  opacity: 0.5;
+}
+
+/* ---- Floating Animation Variants ---- */
+.float-1 { animation: float 6s ease-in-out infinite; }
+.float-2 { animation: float 8s ease-in-out infinite 1s; }
+.float-3 { animation: floatSlow 10s ease-in-out infinite 0.5s; }
+
+/* ---- Marquee / Ticker ---- */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-inner {
+  display: inline-flex;
+  animation: marquee 30s linear infinite;
+}
+
+/* ---- Enhanced Focus States ---- */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---- Selection Color ---- */
+::selection {
+  background: var(--accent-light);
+  color: var(--text);
+}
+
+/* ---- Smooth Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ---- Enhanced Mobile Menu ---- */
+.mobile-nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0);
+  width: 4px;
+  height: 60%;
+  background: var(--accent);
+  border-radius: 0 2px 2px 0;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.mobile-nav-link:hover::before {
+  transform: translateY(-50%) scaleX(1);
+}
+
+/* ---- Enhanced Badge ---- */
+.hero-badge {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ---- Experience Card Number ---- */
+.experience-card {
+  position: relative;
+}
+
+.experience-card::after {
+  content: '';
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  opacity: 0;
+  transition: opacity var(--duration-normal), transform var(--duration-normal);
+  transform: scale(0);
+}
+
+.experience-card:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Project Card Number Indicator ---- */
+.project-card {
+  position: relative;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent-light), transparent);
+  border-radius: var(--radius-lg) 0 0 0;
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.project-card:hover::after {
+  opacity: 0.5;
+}
+
+/* ---- Credential Card Shine ---- */
+.credential-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.credential-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.8s ease;
+}
+
+.credential-card:hover::after {
+  transform: translateX(100%) rotate(45deg);
+}
+
+/* ---- Timeline Glow ---- */
+.timeline-item--active .timeline-marker {
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+/* ---- DVMReady Feature Card Icon Pulse ---- */
+.feature-card:hover .feature-icon {
+  box-shadow: 0 0 20px rgba(10, 130, 120, 0.3);
+}
+
+/* ---- Contact Method Glow ---- */
+.contact-method:hover .contact-method-icon {
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+/* ---- Footer Social Glow (if added later) ---- */
+/* Prepared for future social links */
+
+/* ---- Hero Stat Enhanced ---- */
+.hero-stat {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.hero-stat:hover::before {
+  transform: scaleX(1);
+}
+
+/* ---- Highlight Card Shine ---- */
+.highlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.highlight-card:hover::after {
+  left: 150%;
+}
+
+/* ---- Open To Card Arrow ---- */
+.opento-card {
+  position: relative;
+}
+
+.opento-card::after {
+  content: '';
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%) translateX(-8px);
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  transform-origin: center;
+  opacity: 0;
+  transition: all var(--duration-fast);
+}
+
+.opento-card:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0) rotate(45deg);
+}
+
+/* ---- Focus Card Top Accent ---- */
+.focus-card {
+  position: relative;
+}
+
+.focus-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--space-8);
+  right: var(--space-8);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.focus-card:hover::before {
+  opacity: 0.5;
+}
+
+/* ---- About Card Icon Bounce ---- */
+.about-card:hover .about-card-icon {
+  animation: float 0.6s ease-in-out;
+}
+
+/* ---- Section Kicker Animation ---- */
+.section-kicker {
+  position: relative;
+  display: inline-block;
+}
+
+.section-kicker::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* ---- Blockquote Styling for Mission ---- */
+.mission-quote {
+  position: relative;
+  padding-left: var(--space-8);
+  border-left: 3px solid var(--accent);
+}
+
+.mission-quote::before {
+  display: none;
+}
+
+/* ---- Loading Screen Enhanced ---- */
+.loader {
+  background: linear-gradient(135deg, var(--bg), var(--bg-warm));
+}
+
+/* ---- Smooth Image Loading ---- */
+img {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+}
+
+img[loading="lazy"].is-loaded {
+  opacity: 1;
+}
+
+/* ---- Enhanced Print ---- */
+@media print {
+  .section { padding: 1.5rem 0 !important; }
+  .hero { min-height: auto !important; padding-top: 1rem !important; }
+  .hero-visual { display: none !important; }
+  .hero-orb { display: none !important; }
+  .scroll-hint { display: none !important; }
+  .cursor { display: none !important; }
+  .loader { display: none !important; }
+  .site-header { position: relative !important; }
+}
