@@ -192,15 +192,15 @@
             </div>
           </div>
         <div class="hero-visual">
-          <div class="hero-avatar clip-reveal">
+          <div class="hero-photo-frame clip-reveal">
             <img src="images/parth.png" alt="Dr. Parth Chaudhari" width="340" height="420">
           </div>
         </div>
         </div>
       </div>
-      <div class="hero-deco-orb hero-deco-orb--1" aria-hidden="true"></div>
-      <div class="hero-deco-orb hero-deco-orb--2" aria-hidden="true"></div>
-      <div class="scroll-indicator" aria-hidden="true">
+      <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+      <div class="scroll-hint" aria-hidden="true">
         <span>Scroll</span>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
@@ -256,7 +256,6 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <div class="noise-overlay" aria-hidden="true"></div>
 
     <!-- About Section -->
     <section class="section section--about" id="about">
@@ -496,7 +495,6 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <div class="noise-overlay" aria-hidden="true"></div>
 
     <!-- DVMReady Founder Section -->
     <section class="section section--dvmready" id="dvmready">
@@ -508,9 +506,8 @@
             Built in 2026 to support NAVLE preparation, clinical decision-making, and the international veterinary graduate journey.
           </p>
         </div>
-        <div class="dvmready-intro">
-          <h3 class="dvmready-intro-title">Why I Built DVMReady</h3>
-          <p class="dvmready-lead">
+        <div class="dvmready-story">
+          <p>
             DVMReady was created from the real challenges of moving through the international veterinary licensing pathway: fragmented information, exam pressure, clinical confidence gaps, and limited practical tools for day-to-day learning. I built it because I lived those challenges — and I believe no veterinarian should navigate them alone.
           </p>
           <a href="https://dvmready.com" class="btn btn--light" target="_blank" rel="noopener noreferrer">
@@ -787,46 +784,63 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <div class="noise-overlay" aria-hidden="true"></div>
-
-    <!-- Credentials & Mission Section -->
+    <!-- Credentials Section -->
     <section class="section section--credentials" id="credentials">
       <div class="container">
-        <div class="credentials-layout">
-          <div class="credentials-checklist">
-            <h3 class="credentials-heading">Credentials</h3>
-            <ul class="credentials-list">
-              <li>
-                <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                Veterinary Degree — India
-              </li>
-              <li>
-                <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                BCSE Passed
-              </li>
-              <li>
-                <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                NAVLE Passed
-              </li>
-              <li>
-                <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                Canadian Licensing Pathway in Progress
-              </li>
-            </ul>
+        <div class="section-header reveal">
+          <span class="section-kicker">Credentials</span>
+          <h2 class="section-title section-title-accent" data-animate="text">Verified. Transparent. In progress.</h2>
+        </div>
+        <div class="credentials-grid reveal-stagger">
+          <div class="credential-card">
+            <div class="credential-icon credential-icon--degree">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <h3 class="credential-title">Veterinary Degree</h3>
+            <p class="credential-text">Completed veterinary education and training in India, qualifying as a veterinarian with comprehensive large and small animal clinical preparation.</p>
           </div>
-          <div class="credentials-mission" id="mission">
-            <span class="section-kicker">Mission</span>
-            <blockquote class="mission-quote">
-              "My goal is to bridge international veterinary experience, Canadian clinical practice, 
-              and digital education tools to help veterinary professionals learn faster and work more confidently."
-            </blockquote>
-            <p class="mission-text">
-              Every international veterinary graduate has a unique story. Mine involves large-animal practice in rural India, 
-              NAVLE preparation at midnight, and building a tech product between clinical shifts in Ontario. 
-              I believe that experience — clinical, cultural, and technical — is what makes DVMReady useful. 
-              It's built by someone who actually walked the path.
-            </p>
+          <div class="credential-card">
+            <div class="credential-icon credential-icon--passed">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="credential-title">BCSE Passed</h3>
+            <p class="credential-text">Successfully passed the Basic Clinical Skills Exam, a required assessment for international veterinary graduates seeking North American licensure.</p>
           </div>
+          <div class="credential-card">
+            <div class="credential-icon credential-icon--passed">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="credential-title">NAVLE Passed</h3>
+            <p class="credential-text">Passed the North American Veterinary Licensing Examination — the standardized exam required for veterinary licensure in the United States and Canada.</p>
+          </div>
+          <div class="credential-card credential-card--progress">
+            <div class="credential-icon credential-icon--progress">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="credential-title">Canadian Licensing Pathway</h3>
+            <p class="credential-text">Currently pursuing the remaining CVO and Canadian regulatory requirements toward full veterinary licensure in Ontario. This section will be updated as milestones are reached.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- Mission Section -->
+    <section class="section section--mission" id="mission">
+      <div class="container">
+        <div class="mission-content reveal">
+          <span class="section-kicker">Mission</span>
+          <blockquote class="mission-quote">
+            "My goal is to bridge international veterinary experience, Canadian clinical practice, 
+            and digital education tools to help veterinary professionals learn faster and work more confidently."
+          </blockquote>
+          <p class="mission-text">
+            Every international veterinary graduate has a unique story. Mine involves large-animal practice in rural India, 
+            NAVLE preparation at midnight, and building a tech product between clinical shifts in Ontario. 
+            I believe that experience — clinical, cultural, and technical — is what makes DVMReady useful. 
+            It's built by someone who actually walked the path.
+          </p>
         </div>
       </div>
     </section>
