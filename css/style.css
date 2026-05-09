@@ -468,19 +468,19 @@ button {
 }
 
 .hero-avatar {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
+  width: 260px;
+  height: 320px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 4px solid var(--white);
 }
 
-.hero-avatar img,
-.hero-avatar svg {
+.hero-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 15%;
 }
 
 .hero-badge {
@@ -1104,6 +1104,27 @@ button {
   font-size: var(--text-sm);
   color: var(--navy-muted);
   line-height: 1.65;
+}
+
+.licensure-clarification {
+  margin-top: var(--space-10);
+  padding: var(--space-6) var(--space-8);
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.licensure-clarification p {
+  font-size: var(--text-sm);
+  color: var(--navy-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.licensure-clarification strong {
+  color: var(--navy);
+  font-weight: 600;
 }
 
 /* ============================================
