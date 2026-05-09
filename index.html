@@ -82,6 +82,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="images/parth-hero.jpg" fetchpriority="high">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
@@ -182,10 +183,10 @@
                 <svg aria-hidden="true" class="icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
               <a href="#contact" class="btn btn--ghost">Contact Me</a>
-              <button type="button" class="btn btn--ghost btn--disabled" disabled title="Resume coming soon">
+              <div class="resume-status">
                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Resume
-              </button>
+                <span>Resume coming soon</span>
+              </div>
             </div>
             <div class="hero-stats">
               <div class="hero-stat">
@@ -220,7 +221,7 @@
           </div>
         <div class="hero-visual">
           <div class="hero-photo-frame clip-reveal">
-            <img src="images/parth.png" alt="Dr. Parth Chaudhari" width="340" height="420" decoding="async" loading="eager">
+            <img src="images/parth-hero.jpg" alt="Dr. Parth Chaudhari" width="340" height="420" decoding="async" loading="eager" fetchpriority="high">
           </div>
         </div>
         </div>
@@ -935,10 +936,10 @@
               veterinary assistant/technician — I'd love to hear from you.
             </p>
             <div class="contact-methods">
-              <button type="button" class="btn btn--ghost btn--disabled contact-resume-button" disabled title="Resume coming soon">
+              <div class="resume-status resume-status--contact">
                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download Resume
-              </button>
+                <span>Resume coming soon</span>
+              </div>
               <a href="mailto:drparthchaudhari@proton.me" class="contact-method">
                 <div class="contact-method-icon">
                   <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>

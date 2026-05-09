@@ -6,7 +6,7 @@ Personal portfolio website for Dr. Parth Chaudhari.
 
 ## About
 
-Dr. Parth Chaudhari is a foreign-trained veterinarian from India, NAVLE-passed, currently working as a veterinary assistant/technician in Ontario, Canada, and founder of [DVMReady](https://dvmready.com).
+Dr. Parth Chaudhari is an India-trained veterinary graduate, NAVLE-passed, currently working as a veterinary assistant/technician in Ontario, Canada, and founder of [DVMReady](https://dvmready.com).
 
 ## Tech Stack
 
