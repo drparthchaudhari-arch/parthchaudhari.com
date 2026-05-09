@@ -737,8 +737,8 @@ button {
 
 .hero-photo-frame {
   position: relative;
-  width: 400px;
-  height: 320px;
+  width: 340px;
+  height: 420px;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
@@ -2617,8 +2617,8 @@ button {
   }
   
   .hero-photo-frame {
-    width: 280px;
-    height: 224px;
+    width: 260px;
+    height: 320px;
   }
   
   .hero-layout {
