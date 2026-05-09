@@ -468,7 +468,7 @@ button {
 }
 
 .hero-avatar {
-  width: 260px;
+  width: 400px;
   height: 320px;
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -480,7 +480,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center top;
 }
 
 .hero-badge {
