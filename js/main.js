@@ -72,22 +72,40 @@
   // Text Split Animation
   // ============================================
   function splitText(element) {
-    const text = element.textContent;
-    const words = text.split(/\s+/);
-    element.innerHTML = '';
+    let wordIndex = 0;
     element.style.overflow = 'hidden';
+    element.dataset.textSplit = 'true';
 
-    words.forEach((word, i) => {
-      const span = document.createElement('span');
-      span.className = 'split-word';
-      span.textContent = word + '\u00A0';
-      span.style.transitionDelay = (i * 0.04) + 's';
-      element.appendChild(span);
-    });
+    function splitNode(node) {
+      Array.from(node.childNodes).forEach((child) => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const fragment = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach((part) => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) {
+              fragment.appendChild(document.createTextNode(part));
+              return;
+            }
+
+            const span = document.createElement('span');
+            span.className = child.parentElement.closest('.text-accent') ? 'split-word text-accent' : 'split-word';
+            span.textContent = part;
+            span.style.transitionDelay = (wordIndex * 0.04) + 's';
+            wordIndex += 1;
+            fragment.appendChild(span);
+          });
+          child.replaceWith(fragment);
+        } else if (child.nodeType === Node.ELEMENT_NODE && !child.classList.contains('split-word')) {
+          splitNode(child);
+        }
+      });
+    }
+
+    splitNode(element);
   }
 
   function initTextAnimations() {
-    const textElements = document.querySelectorAll('[data-animate="text"]');
+    const textElements = document.querySelectorAll('[data-animate="text"]:not([data-text-split])');
     textElements.forEach((el) => splitText(el));
 
     const textObserver = new IntersectionObserver(

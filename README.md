@@ -37,7 +37,7 @@ python3 -m http.server 8080
 
 ## SEO
 
-- Title: "Dr. Parth Chaudhari | Foreign-Trained Veterinarian & Founder of DVMReady"
+- Title: "Dr. Parth Chaudhari | Veterinary Graduate & DVMReady Founder"
 - Meta description optimized for search
 - Open Graph & Twitter Card tags
 - JSON-LD structured data (Person schema)
