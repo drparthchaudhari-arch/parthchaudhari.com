@@ -17,6 +17,10 @@
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
   const sections = document.querySelectorAll('section[id]');
   const faqItems = document.querySelectorAll('.faq-item');
+  const scrollProgress = document.getElementById('scroll-progress');
+  const scrollProgressFill = scrollProgress?.querySelector('.scroll-progress__fill');
+  const scrollProgressGlow = scrollProgress?.querySelector('.scroll-progress__glow');
+  const scrollProgressMarkers = scrollProgress?.querySelectorAll('.scroll-progress__marker') || [];
 
   // ============================================
   // Loader
@@ -363,6 +367,53 @@
       navTicking = true;
     }
   }, { passive: true });
+
+  // ============================================
+  // Side Scroll Progress
+  // ============================================
+  let progressTicking = false;
+
+  function updateScrollProgress() {
+    if (!scrollProgress || !scrollProgressFill) {
+      progressTicking = false;
+      return;
+    }
+
+    const scrollTop = window.scrollY;
+    const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const progress = Math.min(Math.max(scrollTop / maxScroll, 0), 1);
+    const sectionOffset = header ? header.offsetHeight + 80 : 140;
+    let activeId = sections[0]?.id || '';
+
+    sections.forEach((section) => {
+      if (scrollTop + sectionOffset >= section.offsetTop) {
+        activeId = section.id;
+      }
+    });
+
+    scrollProgress.style.setProperty('--scroll-progress', progress.toFixed(4));
+    scrollProgressFill.style.transform = `scaleY(${progress})`;
+    if (scrollProgressGlow) {
+      scrollProgressGlow.style.transform = `translateY(${progress * 100}%)`;
+    }
+
+    scrollProgressMarkers.forEach((marker) => {
+      marker.classList.toggle('is-active', marker.dataset.section === activeId);
+    });
+
+    progressTicking = false;
+  }
+
+  function requestScrollProgressUpdate() {
+    if (!progressTicking) {
+      requestAnimationFrame(updateScrollProgress);
+      progressTicking = true;
+    }
+  }
+
+  updateScrollProgress();
+  window.addEventListener('scroll', requestScrollProgressUpdate, { passive: true });
+  window.addEventListener('resize', requestScrollProgressUpdate);
 
   // ============================================
   // FAQ Accordion

@@ -697,6 +697,15 @@ a:hover .icon-external,
   animation: fadeInUp 0.8s var(--ease-out) 0.3s both;
 }
 
+.hero-name {
+  display: block;
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.15em;
+  color: var(--text);
+}
+
 @media (min-width: 768px) {
   .hero-title { font-size: var(--text-5xl); }
 }
@@ -2542,6 +2551,9 @@ a:hover .icon-external,
   .section--mission::before,
   .credential-card:hover .credential-icon--passed,
   .badge-dot,
+  .scroll-progress,
+  .scroll-progress__fill,
+  .scroll-progress__marker.is-active,
   .timeline-item--active .timeline-marker {
     animation: none;
   }
@@ -2804,6 +2816,176 @@ a:focus-visible {
 ::selection {
   background: var(--accent-light);
   color: var(--text);
+}
+
+/* ---- Animated Side Scroll Progress ---- */
+.scroll-progress {
+  --scroll-progress: 0;
+  position: fixed;
+  left: clamp(0.75rem, 2vw, 1.75rem);
+  top: 22vh;
+  width: 80px;
+  height: 56vh;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 0.8s var(--ease-out) 1.2s forwards;
+}
+
+.scroll-progress__rail {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, rgba(10, 130, 120, 0.08), rgba(15, 27, 51, 0.08));
+  box-shadow: inset 0 0 0 1px rgba(10, 130, 120, 0.08);
+}
+
+.scroll-progress__fill {
+  position: absolute;
+  inset: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, #14B8A6 0%, var(--accent) 42%, var(--text) 100%);
+  background-size: 100% 180%;
+  box-shadow:
+    0 0 18px rgba(10, 130, 120, 0.45),
+    0 0 42px rgba(20, 184, 166, 0.22);
+  transition: transform 120ms linear;
+  animation: scrollRailFlow 3.5s ease-in-out infinite;
+}
+
+.scroll-progress__fill::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow:
+    0 0 0 3px rgba(20, 184, 166, 0.20),
+    0 0 22px rgba(10, 130, 120, 0.65);
+  transform: translateX(-50%);
+}
+
+.scroll-progress__glow {
+  position: absolute;
+  left: -13px;
+  top: -34px;
+  width: 30px;
+  height: 72px;
+  border-radius: var(--radius-pill);
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.42), transparent 70%);
+  filter: blur(8px);
+  opacity: 0.75;
+  transition: transform 120ms linear;
+}
+
+.scroll-progress__markers {
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scroll-progress__marker {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid rgba(10, 130, 120, 0.24);
+  box-shadow: 0 0 0 4px rgba(250, 248, 245, 0.86);
+  transition:
+    background var(--duration-fast),
+    border-color var(--duration-fast),
+    box-shadow var(--duration-fast),
+    transform var(--duration-fast);
+}
+
+.scroll-progress__marker::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: inherit;
+  background: rgba(10, 130, 120, 0.28);
+  transition: transform var(--duration-fast), background var(--duration-fast);
+}
+
+.scroll-progress__marker span {
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  min-width: 86px;
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translate(-8px, -50%);
+  transition: opacity var(--duration-fast), transform var(--duration-fast);
+  backdrop-filter: blur(10px);
+}
+
+.scroll-progress:hover .scroll-progress__marker span,
+.scroll-progress__marker.is-active span {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.scroll-progress__marker.is-active {
+  background: var(--accent);
+  border-color: rgba(20, 184, 166, 0.82);
+  box-shadow:
+    0 0 0 4px rgba(10, 130, 120, 0.14),
+    0 0 24px rgba(10, 130, 120, 0.45);
+  transform: scale(1.22);
+  animation: scrollMarkerPulse 1.8s ease-in-out infinite;
+}
+
+.scroll-progress__marker.is-active::before {
+  background: #FFFFFF;
+  transform: scale(0.72);
+}
+
+@keyframes scrollRailFlow {
+  0%, 100% { background-position: 50% 0%; }
+  50% { background-position: 50% 100%; }
+}
+
+@keyframes scrollMarkerPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 4px rgba(10, 130, 120, 0.14),
+      0 0 24px rgba(10, 130, 120, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px rgba(10, 130, 120, 0.10),
+      0 0 34px rgba(20, 184, 166, 0.52);
+  }
+}
+
+@media (max-width: 899px) {
+  .scroll-progress {
+    display: none;
+  }
 }
 
 /* ---- Smooth Scrollbar ---- */
@@ -3095,6 +3277,7 @@ img[loading="lazy"].is-loaded {
   .hero-visual { display: none !important; }
   .hero-orb { display: none !important; }
   .scroll-hint { display: none !important; }
+  .scroll-progress { display: none !important; }
   .cursor { display: none !important; }
   .loader { display: none !important; }
   .site-header { position: relative !important; }
